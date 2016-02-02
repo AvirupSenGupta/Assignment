@@ -13,15 +13,17 @@
 
 #### Variables of the tidy data
 
-activity	                |	Performed activity (values laying, sitting, standing, walking, walking downstairs, walking upstairs)
+Variable                        | Description
+--------------------------------|--------------------
+activity	                      |	Performed activity (values laying, sitting, standing, walking, walking downstairs, walking upstairs)
 subject	                        |	Identifier for the volunteer (values 1-30)
-tbodyaccmeanx	                |	Mean of *time.bodyacc.mean.x* variable for each *subject/activity* 
-tbodyaccmeany	                |	Mean of *time.bodyacc.mean.y* variable for each *subject/activity* 
-tbodyaccmeanz	                |	Mean of *time.bodyacc.mean.z* variable for each *subject/activity* 
-tbodyaccstdx	                |	Mean of *time.bodyacc.std.x* variable for each *subject/activity* 
-tbodyaccstdy	                |	Mean of *time.bodyacc.std.y* variable for each *subject/activity* 
-tbodyaccstdz	                |	Mean of *time.bodyacc.std.z* variable for each *subject/activity* 
-tgravityaccmeanx	        |	Mean of *time.gravityacc.mean.x* variable for each *subject/activity* 
+tbodyaccmeanx	                  |	Mean of *time.bodyacc.mean.x* variable for each *subject/activity* 
+tbodyaccmeany	                  |	Mean of *time.bodyacc.mean.y* variable for each *subject/activity* 
+tbodyaccmeanz	                  |	Mean of *time.bodyacc.mean.z* variable for each *subject/activity* 
+tbodyaccstdx	                  |	Mean of *time.bodyacc.std.x* variable for each *subject/activity* 
+tbodyaccstdy	                  |	Mean of *time.bodyacc.std.y* variable for each *subject/activity* 
+tbodyaccstdz	                  |	Mean of *time.bodyacc.std.z* variable for each *subject/activity* 
+tgravityaccmeanx	              |	Mean of *time.gravityacc.mean.x* variable for each *subject/activity* 
 tgravityaccmeany	        |	Mean of *time.gravityacc.mean.y* variable for each *subject/activity* 
 tgravityaccmeanz	        |	Mean of *time.gravityacc.mean.z* variable for each *subject/activity* 
 tgravityaccstdx	                |	Mean of *time.gravityacc.std.x* variable for each *subject/activity* 
