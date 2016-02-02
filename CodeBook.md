@@ -7,9 +7,7 @@
 * (6) Rewrites X with "activity" and "subject" as two additional columns 
 * (7) Make descriptive variable names by avaoiding "()", "." and "-" programatically 
 * (8) Get mean for each variable based on subject and activity 
-* (9) reshape (melt) the data table to create tidy data with only four columns 
-* (10) the column names of the final tidy data are: "activity","subject","variable","mean". 
-* (11) write the data.frame as a text file
+* (9) write the data.frame as a text file
 
 #### Variables of the tidy data
 
