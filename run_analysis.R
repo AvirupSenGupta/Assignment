@@ -58,15 +58,13 @@ subjects =  rbind(read.table("train/subject_train.txt", header=FALSE),
                   read.table("test/subject_test.txt", header=FALSE))
 # Rewrites X with "activity" and "subject" as two additional columns (Question 3)
 DataSet = data.frame(activity = as.factor(nameVals), subject = subjects, X)
-colnames(DataSet)[1:2] = c("activity", "subject")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Get the colomn names from the dataset
 names.dataset <- c("activity", "subject", names(X))
-# Remove the '()', '-' and '.' from all the names
+# Remove the '()' and'-' from all the names
 names.dataset <- gsub("\\(\\)", "", names.dataset)
 names.dataset <- gsub("-", "", names.dataset)
-names.dataset <- gsub(".", "", names.dataset)
 # Change all label characters to lowercase
 names.dataset <- tolower(names.dataset)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
