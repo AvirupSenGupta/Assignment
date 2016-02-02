@@ -1,4 +1,4 @@
-#install "stringr" package if it's not already installed
+#install packages that are not already installed
 listofPackages <- c("stringr","downloader","reshape","data.table")
 newPackages <- listofPackages[!(listofPackages %in% installed.packages()[,"Package"])]
 if(length(newPackages)) install.packages(newPackages)
@@ -10,8 +10,8 @@ library(downloader)
 library(data.table)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# set working directory. The working directory is the local repo directory.
-setwd("C:/Users/avirup/Desktop/DataScience/CleaningData/Assignment")
+# set working directory. The working directory will the local repo directory.
+setwd(getwd())
 
 # the character string naming the URL of a resource to be downloaded.
 url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -26,6 +26,9 @@ for(i in 1:nrow(con1))
 	unzip(destfile, files=con1$Name[i], exdir = getwd(), overwrite=TRUE) 
 }
 
+# delete the zipfile
+file.remove(destfile)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # set UCI HAR Dataset as the working directory now
 setwd("UCI HAR Dataset")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,27 +57,29 @@ for(i in 1:nrow(activity))
 subjects =  rbind(read.table("train/subject_train.txt", header=FALSE), 
                   read.table("test/subject_test.txt", header=FALSE))
 # Rewrites X with "activity" and "subject" as two additional columns (Question 3)
-X = data.frame(activity = as.factor(nameVals), subject = subjects, X)
-# Renaming the column names of X to avoid “()” or “-” or ".". 
-# Make descriptive variable names by avaoiding "()", "." and "-"
-# List of descriptive variable names are available in the code book. (Question 4)
-colnames(X) = gsub("-|//()|//.//", "", colnames(X))
-colnames(X) = gsub("//.", "", colnames(X))
+DataSet = data.frame(activity = as.factor(nameVals), subject = subjects, X)
+colnames(DataSet)[1:2] = c("activity", "subject")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# Get the colomn names from the dataset
+names.dataset <- c("activity", "subject", names(X))
+# Remove the '()', '-' and '.' from all the names
+names.dataset <- gsub("\\(\\)", "", names.dataset)
+names.dataset <- gsub("-", "", names.dataset)
+names.dataset <- gsub(".", "", names.dataset)
+# Change all label characters to lowercase
+names.dataset <- tolower(names.dataset)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Update all column names in the dataset
+names(DataSet) <- names.dataset
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # convert it as data table
-X = data.table(X)
+DataSet = data.table(DataSet)
 # set the key columns of the data frame
 keycols <- c("activity", "subject")
-setkeyv(X, keycols)
+setkeyv(DataSet, keycols)
 # Get mean for each variable based on subject and activity
-TempResult = as.data.frame.matrix(X[, lapply(.SD,mean), by = key(X)])
-# reshape (melt) the data table to create tidy data
-Reshaped = melt(TempResult, id = c("activity", "subject"))
-# Rename the “value” column as “mean”
-names(Reshaped)[4] = "mean"
+Result = as.data.frame.matrix(DataSet[, lapply(.SD,mean), by = key(DataSet)])
 # write the output as a csv file
-write.csv(Reshaped, "Output.csv", row.names = FALSE)
-
+write.table(Result, "Output.txt", row.names = FALSE, sep = " ")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
