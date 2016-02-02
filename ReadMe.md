@@ -1,6 +1,6 @@
 ### The repository contains two other files:
 * (1) a script *run_analysis.R* for performing the analysis, and 
-* (2) a code book ("CodeBook.md") that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. 
+* (2) a code book *CodeBook.md* that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. 
 
 ### The script *run_analysis.R* perfrms the following task:
 * (1) downloads and calls all the require libraries (if those are not already downloaded).
