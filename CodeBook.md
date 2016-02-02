@@ -1,15 +1,15 @@
 #### Tasks to clean up the data
-*(1) Merges the training and the test sets to create one data set. 
-*(2) Obtain the name of the columns of data set "X" from feature.txt file and assign them as name of "X" 
-*(3) Extracts only the measurements on the mean and standard deviation for each measurement. 
-*(4) Merges the training and the test Training labels to create one label set. 
-*(5) Merges the training and the test Training subjects to create one subject set. 
-*(6) Rewrites X with "activity" and "subject" as two additional columns 
-*(7) Make descriptive variable names by avaoiding "()", "." and "-" programatically 
-*(8) Get mean for each variable based on subject and activity 
-*(9) reshape (melt) the data table to create tidy data with only four columns 
-*(10) the column names of the final tidy data are: "activity","subject","variable","mean". 
-*(11) write the data.frame as a text file
+* (1) Merges the training and the test sets to create one data set. 
+* (2) Obtain the name of the columns of data set "X" from feature.txt file and assign them as name of "X" 
+* (3) Extracts only the measurements on the mean and standard deviation for each measurement. 
+* (4) Merges the training and the test Training labels to create one label set. 
+* (5) Merges the training and the test Training subjects to create one subject set. 
+* (6) Rewrites X with "activity" and "subject" as two additional columns 
+* (7) Make descriptive variable names by avaoiding "()", "." and "-" programatically 
+* (8) Get mean for each variable based on subject and activity 
+* (9) reshape (melt) the data table to create tidy data with only four columns 
+* (10) the column names of the final tidy data are: "activity","subject","variable","mean". 
+* (11) write the data.frame as a text file
 
 #### Variables of the tidy data
 
@@ -29,7 +29,7 @@ tgravityaccmeanz	        |	Mean of *time.gravityacc.mean.z* variable for each *s
 tgravityaccstdx	                |	Mean of *time.gravityacc.std.x* variable for each *subject/activity* 
 tgravityaccstdy	                |	Mean of *time.gravityacc.std.y* variable for each *subject/activity* 
 tgravityaccstdz	                |	Mean of *time.gravityacc.std.z* variable for each *subject/activity* 
-tbodyaccjerkmeanx	        |	Mean of *time.bodyaccjerk.mean.x* variable for each *subject/activity* 
+tbodyaccjerkmeanx	        | Mean of *time.bodyaccjerk.mean.x* variable for each *subject/activity* 
 tbodyaccjerkmeany	        |	Mean of *time.bodyaccjerk.mean.y* variable for each *subject/activity* 
 tbodyaccjerkmeanz	        |	Mean of *time.bodyaccjerk.mean.z* variable for each *subject/activity* 
 tbodyaccjerkstdx	        |	Mean of *time.bodyaccjerk.std.x* variable for each *subject/activity* 
